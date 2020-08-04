@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/ArrowButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/game/road/road2.png" type="Texture" id=2]
+[ext_resource path="res://Frames/arrow_right_frames.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=6]
+[ext_resource path="res://Fonts/heartbit2x.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Scenes/Conductor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Frames/arrow_down_frames.tres" type="SpriteFrames" id=9]
+
+[node name="Game" type="Node2D"]
+position = Vector2( 284.571, -70.3712 )
+rotation = 1.5708
+script = ExtResource( 6 )
+
+[node name="road" type="Sprite" parent="."]
+position = Vector2( 100, 0 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ArrowUp" parent="." instance=ExtResource( 1 )]
+position = Vector2( 120, 164 )
+rotation = 4.71239
+input = "up"
+
+[node name="ArrowRight" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 164 )
+rotation = 4.71239
+frames = ExtResource( 3 )
+input = "right"
+
+[node name="ArrowDown" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 164 )
+rotation = 4.71239
+frames = ExtResource( 9 )
+input = "down"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 86.915
+margin_top = 261.168
+margin_right = 126.915
+margin_bottom = 275.168
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Escape Label" type="Label" parent="."]
+margin_left = 232.674
+margin_top = 272.474
+margin_right = 331.674
+margin_bottom = 286.474
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
+text = "'esc' - Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Combo" type="Label" parent="."]
+margin_left = 145.038
+margin_top = 282.658
+margin_right = 237.038
+margin_bottom = 296.658
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.964706, 0.839216, 0.741176, 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Conductor" parent="." instance=ExtResource( 8 )]
+volume_db = -4.876
+bpm = 115
+[connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
+[connection signal="measure" from="Conductor" to="." method="_on_Conductor_measure"]

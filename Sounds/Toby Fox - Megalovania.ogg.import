@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Toby Fox - Megalovania.ogg-1c18a8a41bba46a81486ab31ba8b5ed0.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Toby Fox - Megalovania.ogg"
+dest_files=[ "res://.import/Toby Fox - Megalovania.ogg-1c18a8a41bba46a81486ab31ba8b5ed0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
